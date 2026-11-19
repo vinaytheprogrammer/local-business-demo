@@ -1,0 +1,84 @@
+{
+  "@context": "https://schema.org",
+  "@type": "HomeAndConstructionBusiness",
+  "name": "Apex Pro Home Services",
+  "image": "https://apexproservices.com/assets/img/og-preview.png",
+  "@id": "https://apexproservices.com/#localbiz",
+  "url": "https://apexproservices.com",
+  "telephone": "+1-800-555-0199",
+  "priceRange": "$$",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "742 Evergreen Terrace",
+    "addressLocality": "Springfield",
+    "addressRegion": "IL",
+    "postalCode": "62704",
+    "addressCountry": "US"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 39.7817,
+    "longitude": -89.6501
+  },
+  "areaServed": [
+    {
+      "@type": "City",
+      "name": "Springfield"
+    },
+    {
+      "@type": "City",
+      "name": "Chatham"
+    },
+    {
+      "@type": "City",
+      "name": "Rochester"
+    }
+  ],
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      "opens": "07:00",
+      "closes": "20:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Saturday", "Sunday"],
+      "opens": "08:00",
+      "closes": "18:00"
+    }
+  ],
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "reviewCount": "148",
+    "bestRating": "5"
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Residential Home Services",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Air Conditioning Repair & Diagnostics"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Emergency Plumbing & Drain Cleaning"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "200-Amp Electrical Panel Upgrades"
+        }
+      }
+    ]
+  }
+}

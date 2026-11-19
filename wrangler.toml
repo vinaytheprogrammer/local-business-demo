@@ -1,6 +1,7 @@
 name = "local-business-demo"
 compatibility_date = "2026-11-01"
 
+# Cloudflare Static Assets configuration
 [assets]
 directory = "."
 binding = "ASSETS"

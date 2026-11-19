@@ -1,0 +1,6 @@
+# Robots.txt for Apex Pro Home Services
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://apexproservices.com/sitemap.xml

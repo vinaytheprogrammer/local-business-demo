@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Customer Reviews & QR Code Generator | Apex Pro Springfield</title>
+  <meta name="description" content="Collect 3x more 5-star Google reviews with our review request link and instant QR code generator. Package 3 automation for local businesses.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+
+  <style>
+    @media print {
+      body * {
+        visibility: hidden;
+      }
+      #printable-counter-card, #printable-counter-card * {
+        visibility: visible;
+      }
+      #printable-counter-card {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        margin: 0;
+        padding: 40px;
+        box-shadow: none;
+        border: 2px solid #000;
+      }
+      .demo-banner, .main-header, .main-footer, .no-print {
+        display: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Demo Control Bar -->
+  <aside class="demo-banner">
+    <div class="demo-banner-container">
+      <div class="demo-title">
+        <span class="demo-pulse"></span>
+        <span>Package 3 Deliverable: Google Reviews Engine & QR Code</span>
+      </div>
+      <a href="index.html" style="color:#38bdf8; text-decoration:none; font-weight:700; font-size:0.8rem;">
+        ← Back to Main Demo
+      </a>
+    </div>
+  </aside>
+
+  <!-- Navigation -->
+  <div class="main-header">
+    <div class="header-container">
+      <a href="index.html" class="logo-wrapper">
+        <div class="logo-icon">⭐</div>
+        <div class="logo-text">
+          <span class="logo-brand">Apex Pro</span>
+          <span class="logo-tagline">Reputation & Review Hub</span>
+        </div>
+      </a>
+
+      <ul class="nav-menu">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="services.html" class="nav-link">Services</a></li>
+        <li><a href="service-emergency.html" class="nav-link">Emergency</a></li>
+        <li><a href="service-installation.html" class="nav-link">Installations</a></li>
+        <li><a href="about.html" class="nav-link">About Us</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+        <li><a href="reviews.html" class="nav-link active">Reviews & QR</a></li>
+      </ul>
+
+      <a href="index.html#quote-section" class="nav-cta-btn">Get Quote</a>
+    </div>
+  </div>
+
+  <!-- Hero Header -->
+  <section class="section-alt" style="padding: 48px 20px; border-bottom:1px solid var(--light-200);">
+    <div class="section-container" style="text-align:center; max-width:800px;">
+      <span class="pkg-badge pkg-3" style="margin-bottom:8px;">Package 3 Exclusive Tool</span>
+      <h1 class="section-title">Automated Google Review Collection & QR Generator</h1>
+      <p class="section-desc">
+        Local businesses that rank #1 on Google Maps have one thing in common: a steady flow of genuine 5-star customer reviews. This turnkey system makes leaving a review effortless.
+      </p>
+    </div>
+  </section>
+
+  <!-- Interactive QR Code Engine & Print Card -->
+  <section class="section">
+    <div class="section-container">
+      <div class="hero-container" style="align-items:flex-start;">
+
+        <!-- Left: How it works & Customizer -->
+        <div>
+          <h2 style="font-size:1.85rem; font-weight:800; color:#0f172a; margin-bottom:16px;">
+            How the Review QR System Grows Your Local Business
+          </h2>
+          <p style="font-size:1rem; color:#475569; margin-bottom:24px; line-height:1.7;">
+            Instead of asking customers to manually open Google, search for your business name, and hunt for the review button, this link & QR code immediately opens the 5-star review dialog on their smartphone camera in 2 seconds.
+          </p>
+
+          <div style="background:#f8fafc; border:1px solid var(--light-200); border-radius:12px; padding:24px; margin-bottom:28px;">
+            <h4 style="color:#0f172a; margin-bottom:12px; font-size:1.05rem;">
+              🛠️ Test With Any Google Review Link:
+            </h4>
+            <div style="display:flex; gap:8px; flex-wrap:wrap;">
+              <input type="url" id="google-review-url-input" class="form-control" 
+                     value="https://g.page/r/demo-apex-local/review" 
+                     style="flex:1; min-width:240px;" placeholder="https://g.page/r/YOUR_ID/review">
+              <button type="button" id="update-qr-btn" class="btn-primary" style="padding:10px 20px; font-size:0.9rem;">
+                Update QR Code
+              </button>
+            </div>
+            <p style="font-size:0.75rem; color:#64748b; margin-top:8px;">
+              💡 <em>Tip: We locate and configure your business's permanent Google Review shortlink directly inside your Google Business Profile.</em>
+            </p>
+          </div>
+
+          <!-- Sentiment Filtering Explanation -->
+          <div style="border-left:4px solid #f59e0b; padding-left:16px; margin-bottom:24px;">
+            <strong style="color:#0f172a; display:block; font-size:1rem;">Smart Review Gating Included:</strong>
+            <p style="font-size:0.9rem; color:#475569; margin-top:4px;">
+              When clients send this page via SMS or WhatsApp, happy customers (4-5 stars) are directed straight to Google Maps to boost your rating, while unhappy customers (1-3 stars) are routed to a private feedback form so the owner can resolve the issue privately before a bad review is posted.
+            </p>
+          </div>
+
+          <button type="button" id="print-qr-btn" class="btn-primary" style="background:#0284c7;">
+            🖨️ Print Counter / Service Truck Stand Flyer
+          </button>
+        </div>
+
+        <!-- Right: Printable Display Stand Card Mockup -->
+        <div id="printable-counter-card" class="qr-box-card" style="border:2px solid #0284c7; max-width:420px; width:100%; margin:0 auto; padding:36px 28px;">
+          <div style="font-size:2rem; margin-bottom:6px;">⚡</div>
+          <div style="font-weight:800; font-size:1.4rem; color:#0f172a; line-height:1.2;">
+            Apex Pro Home Services
+          </div>
+          <div style="font-size:0.9rem; color:#0284c7; font-weight:700; margin-top:4px;">
+            Springfield's 5-Star Service Team
+          </div>
+
+          <div style="margin:24px 0 16px;">
+            <div id="qr-code-display" class="qr-code-placeholder" style="width:200px; height:200px;">
+              <!-- Generated via reviews-qr.js -->
+            </div>
+          </div>
+
+          <div style="font-weight:800; font-size:1.15rem; color:#0f172a;">
+            Scan With Your Phone Camera
+          </div>
+          <p style="font-size:0.85rem; color:#475569; margin-top:6px; line-height:1.5;">
+            Loved our work today? Point your phone camera here to leave a quick Google review. It takes less than 30 seconds!
+          </p>
+
+          <div style="display:flex; justify-content:center; gap:4px; font-size:1.4rem; color:#f59e0b; margin-top:16px;">
+            ★★★★★
+          </div>
+          <div style="font-size:0.75rem; color:#94a3b8; margin-top:4px;">
+            Thank you for supporting a local family business!
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="main-footer">
+    <div class="footer-container">
+      <div class="footer-col">
+        <div class="logo-brand" style="color:#fff;">Apex Pro Reviews</div>
+        <p style="font-size:0.85rem; color:#94a3b8; margin-top:8px;">Springfield Google Business Profile & Reputation Engine.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <a href="index.html" style="color:#94a3b8; text-decoration:none;">Back to Main Demo</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/analytics.js"></script>
+  <script src="assets/js/reviews-qr.js"></script>
+</body>
+</html>
