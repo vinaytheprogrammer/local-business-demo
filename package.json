@@ -1,0 +1,20 @@
+{
+  "name": "local-business-demo",
+  "version": "1.0.0",
+  "description": "3-Tier Local Business Website Demo for Cloudflare Pages and GitHub Pages",
+  "scripts": {
+    "start": "npx -y serve . -p 3000",
+    "deploy:cloudflare": "npx -y wrangler pages deploy . --project-name=local-business-demo",
+    "deploy:cloudflare-workers": "npx -y wrangler deploy",
+    "test:sitemap": "curl -I http://localhost:3000/sitemap.xml"
+  },
+  "keywords": [
+    "local-seo",
+    "cloudflare-pages",
+    "google-business-profile",
+    "hvac",
+    "lead-generation"
+  ],
+  "author": "Antigravity Agent",
+  "license": "MIT"
+}
