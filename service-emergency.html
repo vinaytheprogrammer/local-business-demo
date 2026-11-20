@@ -14,20 +14,22 @@
     .emergency-hero {
       background: linear-gradient(135deg, #1c1917 0%, #292524 50%, #431407 100%);
       color: #fff;
-      padding: 60px 20px;
+      padding: 64px 20px;
       border-bottom: 4px solid #ea580c;
+      position: relative;
     }
     .dispatch-badge {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
+      gap: 10px;
       background: rgba(234, 88, 12, 0.2);
       border: 1px solid #ea580c;
       color: #fed7aa;
-      padding: 6px 16px;
+      padding: 8px 18px;
       border-radius: 9999px;
-      font-weight: 700;
-      font-size: 0.85rem;
+      font-weight: 800;
+      font-size: 0.88rem;
+      box-shadow: 0 0 20px rgba(234, 88, 12, 0.35);
     }
     .status-dot {
       width: 10px;
@@ -35,6 +37,20 @@
       background: #22c55e;
       border-radius: 50%;
       box-shadow: 0 0 10px #22c55e;
+      animation: pulseGlow 1.8s infinite;
+    }
+    .emergency-countdown-box {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(0,0,0,0.4);
+      padding: 6px 14px;
+      border-radius: 8px;
+      border: 1px solid rgba(255,255,255,0.15);
+      font-size: 0.85rem;
+      margin-top: 10px;
+      color: #fde047;
+      font-weight: 700;
     }
   </style>
 </head>
@@ -85,16 +101,20 @@
           <span>ON-CALL DISPATCH STATUS: ACTIVE & STANDBY</span>
         </div>
 
-        <h1 style="font-size:2.8rem; font-weight:800; line-height:1.15; margin:16px 0; color:#fff;">
+        <div class="emergency-countdown-box">
+          <span>⚡ Standby Response Vans: 3 Active in Springfield | Est. Arrival: ~42 Mins</span>
+        </div>
+
+        <h1 style="font-size:3rem; font-weight:800; line-height:1.15; margin:18px 0; color:#fff;">
           Springfield Emergency Repair: We Arrive In <span style="color:#f97316;">60 Minutes</span>
         </h1>
 
-        <p style="font-size:1.1rem; color:#d6d3d1; max-width:540px; margin-bottom:24px; line-height:1.6;">
+        <p style="font-size:1.15rem; color:#d6d3d1; max-width:540px; margin-bottom:28px; line-height:1.65;">
           Burst pipe? AC broken in extreme heat? Sparks or smell of burning plastic? Our emergency response trucks are on the road 24 hours a day with replacement parts.
         </p>
 
         <div style="display:flex; gap:16px; flex-wrap:wrap; margin-bottom:32px;">
-          <a href="tel:+18005550199" class="btn-primary" style="background:#ea580c; font-size:1.15rem; padding:16px 32px;">
+          <a href="tel:+18005550199" class="btn-primary" style="background:#ea580c; font-size:1.15rem; padding:16px 34px;">
             🚨 Call Dispatcher Now: (800) 555-0199
           </a>
           <a href="https://wa.me/919876543210?text=EMERGENCY%20SERVICE%20REQUEST" class="btn-secondary" style="background:#25d366; color:#fff; border:none;">
@@ -110,7 +130,7 @@
       </div>
 
       <!-- Quick Emergency Dispatch Request Card -->
-      <div class="quote-card" style="border: 2px solid #ea580c;">
+      <div class="quote-card" style="border: 2.5px solid #ea580c;">
         <div class="quote-card-header">
           <h3 style="color:#ea580c; display:flex; align-items:center; gap:8px;">
             <span>🚨</span> Fast Emergency Callback
@@ -118,7 +138,7 @@
           <p>Submit this 30-second form. Our dispatch team calls you in <strong>3 minutes or less</strong>.</p>
         </div>
 
-        <form id="emergency-quick-form" onsubmit="event.preventDefault(); alert('Emergency request received! Dispatcher is dialing your phone right now.');">
+        <form id="emergency-quick-form" onsubmit="event.preventDefault(); showToast('Emergency dispatched! Standby technician is dialing your number.');">
           <div class="form-group">
             <label class="form-label">Your Name *</label>
             <input type="text" class="form-control" placeholder="Mark Davis" required>
@@ -150,28 +170,28 @@
 
   <!-- Emergency Response Checklist -->
   <section class="section">
-    <div class="section-container" style="max-width:900px;">
+    <div class="section-container" style="max-width:960px;">
       <div class="section-header">
         <div class="section-eyebrow" style="color:#ea580c;">What To Do While We Are On Our Way</div>
         <h2 class="section-title">Critical Emergency Safety Steps</h2>
       </div>
 
-      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:20px;">
-        <div style="background:#fff; border:1px solid #fed7aa; padding:24px; border-radius:12px;">
-          <h4 style="color:#c2410c; margin-bottom:8px;">1. For Water Leaks / Flooding</h4>
-          <p style="font-size:0.9rem; color:#475569;">
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:24px;">
+        <div class="service-card" style="border-left:4px solid #0284c7;">
+          <h4 style="color:#0284c7; margin-bottom:10px; font-size:1.15rem;">1. For Water Leaks / Flooding</h4>
+          <p style="font-size:0.95rem; color:#475569; line-height:1.6;">
             Locate your main water shutoff valve (usually in the basement or utility closet) and turn clockwise until it stops.
           </p>
         </div>
-        <div style="background:#fff; border:1px solid #fed7aa; padding:24px; border-radius:12px;">
-          <h4 style="color:#c2410c; margin-bottom:8px;">2. For Electrical Sparks or Smoke</h4>
-          <p style="font-size:0.9rem; color:#475569;">
+        <div class="service-card" style="border-left:4px solid #ea580c;">
+          <h4 style="color:#ea580c; margin-bottom:10px; font-size:1.15rem;">2. For Electrical Sparks or Smoke</h4>
+          <p style="font-size:0.95rem; color:#475569; line-height:1.6;">
             Do not touch wet outlets. Shut off the main circuit breaker if safe to approach, and keep family and pets away.
           </p>
         </div>
-        <div style="background:#fff; border:1px solid #fed7aa; padding:24px; border-radius:12px;">
-          <h4 style="color:#c2410c; margin-bottom:8px;">3. For Gas Odors (Rotten Eggs)</h4>
-          <p style="font-size:0.9rem; color:#475569;">
+        <div class="service-card" style="border-left:4px solid #dc2626;">
+          <h4 style="color:#dc2626; margin-bottom:10px; font-size:1.15rem;">3. For Gas Odors (Rotten Eggs)</h4>
+          <p style="font-size:0.95rem; color:#475569; line-height:1.6;">
             Evacuate the home immediately. Do not flip light switches or use phones indoors. Call our team from outside.
           </p>
         </div>
@@ -197,6 +217,17 @@
     </div>
   </footer>
 
+  <!-- Floating Mobile Bar -->
+  <aside class="floating-mobile-bar" aria-label="Quick Mobile Call Actions">
+    <a href="tel:+18005550199" class="floating-mobile-btn floating-btn-call">
+      <span>🚨 Call Emergency</span>
+    </a>
+    <a href="https://wa.me/919876543210?text=EMERGENCY%20SERVICE" target="_blank" class="floating-mobile-btn floating-btn-whatsapp">
+      <span>💬 WhatsApp Tech</span>
+    </a>
+  </aside>
+
   <script src="assets/js/analytics.js"></script>
+  <script src="assets/js/interactions.js"></script>
 </body>
 </html>

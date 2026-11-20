@@ -24,7 +24,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/styles.css">
 
-  <!-- LocalBusiness Schema.org Structured Data (JSON-LD) (Package 2 & 3 Deliverable) -->
+  <!-- LocalBusiness Schema.org Structured Data (JSON-LD) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -67,12 +67,7 @@
       "ratingValue": "4.9",
       "reviewCount": "148",
       "bestRating": "5"
-    },
-    "sameAs": [
-      "https://maps.google.com/?cid=123456789",
-      "https://www.yelp.com/biz/apex-pro-services",
-      "https://www.yellowpages.com/springfield-il/mip/apex-pro-services"
-    ]
+    }
   }
   </script>
 </head>
@@ -117,7 +112,7 @@
     <div class="top-bar-container">
       <div class="top-bar-info">
         <div class="top-bar-item">
-          <span>📍 Springfield & Metro Service Area</span>
+          <span>📍 Springfield & Sangamon County</span>
         </div>
         <div class="top-bar-item">
           <span>⏰ 24/7 Rapid Emergency Response Available</span>
@@ -294,25 +289,100 @@
   </section>
 
   <!-- =========================================================================
-       STATS & CREDIBILITY BAR
+       ANIMATED STATS & CREDIBILITY BAR
        ========================================================================= -->
   <section class="stats-bar">
     <div class="stats-container">
       <div class="stat-item">
-        <div class="stat-number">15+</div>
+        <div class="stat-number animate-counter" data-target="15" data-suffix="+">0</div>
         <div class="stat-label">Years Local Service</div>
       </div>
       <div class="stat-item">
-        <div class="stat-number">2,400+</div>
+        <div class="stat-number animate-counter" data-target="2400" data-suffix="+">0</div>
         <div class="stat-label">Happy Homeowners</div>
       </div>
       <div class="stat-item">
-        <div class="stat-number">60 Min</div>
+        <div class="stat-number animate-counter" data-target="60" data-suffix=" Min">0</div>
         <div class="stat-label">Average Emergency ETA</div>
       </div>
       <div class="stat-item">
-        <div class="stat-number">4.9 ★</div>
+        <div class="stat-number animate-counter" data-target="4.9" data-suffix=" ★" data-decimals="1">0</div>
         <div class="stat-label">Google Rating (148 Reviews)</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       INTERACTIVE INSTANT PROBLEM DIAGNOSTIC & ESTIMATOR
+       ========================================================================= -->
+  <section class="diagnostic-section reveal-on-scroll">
+    <div class="section-container">
+      <div class="section-header">
+        <div class="section-eyebrow" style="color:#059669;">Instant Interactive Estimator</div>
+        <h2 class="section-title">What Issue Are You Experiencing Today?</h2>
+        <p class="section-desc">
+          Click any common problem below to see an instant diagnostic estimate, average repair timeline, and upfront price range.
+        </p>
+      </div>
+
+      <!-- Problem Selector Buttons -->
+      <div class="diagnostic-picker-grid">
+        <button type="button" class="diagnostic-btn active" data-diag-key="ac-hot">
+          <span>❄️</span> AC Blowing Warm Air
+        </button>
+        <button type="button" class="diagnostic-btn" data-diag-key="pipe-leak">
+          <span>🚰</span> Pipe Burst / Active Leak
+        </button>
+        <button type="button" class="diagnostic-btn" data-diag-key="breaker-trip">
+          <span>⚡</span> Breaker Tripping Repeatedly
+        </button>
+        <button type="button" class="diagnostic-btn" data-diag-key="furnace-cold">
+          <span>🔥</span> Furnace Won't Ignite
+        </button>
+        <button type="button" class="diagnostic-btn" data-diag-key="ev-charger">
+          <span>🔌</span> Level 2 EV Charger Install
+        </button>
+      </div>
+
+      <!-- Live Dynamic Result Card -->
+      <div class="diag-result-card" id="diag-result-card">
+        <div class="diag-result-header">
+          <div>
+            <h3 id="diag-title" style="font-size:1.45rem; font-weight:800; color:#0f172a;">
+              Air Conditioner Blowing Warm / Room Temp Air
+            </h3>
+            <p id="diag-fix" style="font-size:0.95rem; color:#475569; margin-top:4px;">
+              Capacitor failure, contactor burnt, or low refrigerant pressure.
+            </p>
+          </div>
+          <span id="diag-badge" style="background:#fee2e2; color:#b91c1c; font-weight:800; font-size:0.75rem; padding:4px 12px; border-radius:9999px;">
+            High Priority (Summer Hazard)
+          </span>
+        </div>
+
+        <div class="diag-details-grid">
+          <div class="diag-detail-box">
+            <div class="diag-detail-label">Est. Repair Time</div>
+            <div class="diag-detail-value" id="diag-time" style="color:#0284c7;">45 – 90 Minutes</div>
+          </div>
+          <div class="diag-detail-box">
+            <div class="diag-detail-label">Transparent Estimate</div>
+            <div class="diag-detail-value" id="diag-cost" style="color:#059669;">$89 – $185</div>
+          </div>
+          <div class="diag-detail-box">
+            <div class="diag-detail-label">Parts & Labor</div>
+            <div class="diag-detail-value" style="font-size:1rem; color:#475569;">100% Guaranteed</div>
+          </div>
+        </div>
+
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; padding-top:12px; border-top:1px solid var(--light-200);">
+          <span style="font-size:0.85rem; color:#64748b;">
+            💡 <em>Diagnostic fee is 100% credited toward your repair if you proceed.</em>
+          </span>
+          <button type="button" id="diag-apply-btn" class="btn-primary" data-target-service="HVAC Heating & AC Repair" style="padding:12px 24px; font-size:0.95rem;">
+            Book AC Diagnostic ($89 Waived on Repair) →
+          </button>
+        </div>
       </div>
     </div>
   </section>
@@ -332,7 +402,7 @@
 
       <div class="services-grid">
         <!-- Service 1 -->
-        <div class="service-card" data-pkg="pkg-1">
+        <div class="service-card reveal-on-scroll" data-pkg="pkg-1">
           <div style="display:flex; justify-content:space-between; align-items:flex-start;">
             <div class="service-icon">❄️</div>
             <span class="pkg-badge pkg-1">Included in Starter</span>
@@ -350,7 +420,7 @@
         </div>
 
         <!-- Service 2 -->
-        <div class="service-card" data-pkg="pkg-1">
+        <div class="service-card reveal-on-scroll" data-pkg="pkg-1">
           <div style="display:flex; justify-content:space-between; align-items:flex-start;">
             <div class="service-icon">🔧</div>
             <span class="pkg-badge pkg-1">Included in Starter</span>
@@ -368,7 +438,7 @@
         </div>
 
         <!-- Service 3 -->
-        <div class="service-card" data-pkg="pkg-1">
+        <div class="service-card reveal-on-scroll" data-pkg="pkg-1">
           <div style="display:flex; justify-content:space-between; align-items:flex-start;">
             <div class="service-icon">⚡</div>
             <span class="pkg-badge pkg-1">Included in Starter</span>
@@ -386,7 +456,7 @@
         </div>
 
         <!-- Service 4 (High Intent Landing Page 1 - Package 3) -->
-        <div class="service-card" style="border:2px solid #f97316;" data-pkg="pkg-3">
+        <div class="service-card reveal-on-scroll" style="border:2px solid #f97316;" data-pkg="pkg-3">
           <div style="display:flex; justify-content:space-between; align-items:flex-start;">
             <div class="service-icon" style="background:#ffedd5; color:#ea580c;">🚨</div>
             <span class="pkg-badge pkg-3">Package 3 Landing Page</span>
@@ -406,7 +476,7 @@
         </div>
 
         <!-- Service 5 (High Intent Landing Page 2 - Package 3) -->
-        <div class="service-card" style="border:2px solid #0284c7;" data-pkg="pkg-3">
+        <div class="service-card reveal-on-scroll" style="border:2px solid #0284c7;" data-pkg="pkg-3">
           <div style="display:flex; justify-content:space-between; align-items:flex-start;">
             <div class="service-icon">🏗️</div>
             <span class="pkg-badge pkg-3">Package 3 Landing Page</span>
@@ -426,7 +496,7 @@
         </div>
 
         <!-- Service 6 -->
-        <div class="service-card" data-pkg="pkg-2">
+        <div class="service-card reveal-on-scroll" data-pkg="pkg-2">
           <div style="display:flex; justify-content:space-between; align-items:flex-start;">
             <div class="service-icon">🛡️</div>
             <span class="pkg-badge pkg-2">Package 2 Service</span>
@@ -447,90 +517,159 @@
   </section>
 
   <!-- =========================================================================
-       GOOGLE BUSINESS PROFILE (GBP) LIVE MOCKUP SHOWCASE (PACKAGE 2 & 3)
+       GOOGLE BUSINESS PROFILE (GBP) INTERACTIVE TABBED SHOWCASE (PACKAGE 2 & 3)
        ========================================================================= -->
-  <section class="section" id="gbp-preview" data-pkg="pkg-2">
+  <section class="section reveal-on-scroll" id="gbp-preview" data-pkg="pkg-2">
     <div class="section-container">
       <div class="section-header">
         <div style="display:inline-block; margin-bottom:8px;">
           <span class="pkg-badge pkg-2">Package 2 & 3 Deliverable</span>
         </div>
-        <h2 class="section-title">How Your Business Appears on Google Search & Maps</h2>
+        <h2 class="section-title">Interactive Google Business Profile Experience</h2>
         <p class="section-desc">
-          We fully optimize your Google Business Profile (GBP) with primary categories, rich descriptions, Q&A seeding, and active starter posts to rank in the coveted Local 3-Pack.
+          Click the interactive tabs below to preview the exact profile assets that rank your business in Google's Local 3-Pack.
         </p>
       </div>
 
       <div class="gbp-preview-card">
         <div class="gbp-header">
           <div style="display:flex; align-items:center; gap:10px;">
-            <span style="font-size:1.5rem;">🔍</span>
-            <strong>Google Knowledge Panel & Maps Preview</strong>
+            <span style="font-size:1.5rem;">📍</span>
+            <strong>Google Maps Knowledge Panel (Live Simulation)</strong>
           </div>
           <div class="gbp-verified">
             <span>✓ Verified by Google</span>
           </div>
         </div>
 
-        <div class="gbp-body">
-          <div>
-            <div class="gbp-biz-name">Apex Pro Home Services</div>
-            <div class="gbp-rating">
-              <span class="gbp-rating-stars">4.9 ★★★★★</span>
-              <span>(148 Google reviews)</span>
-              <span>• HVAC & Plumbing Contractor</span>
-            </div>
+        <!-- Interactive Tab Navigation -->
+        <nav class="gbp-nav-tabs-bar">
+          <button type="button" class="gbp-nav-tab active" data-panel="gbp-panel-overview">Overview</button>
+          <button type="button" class="gbp-nav-tab" data-panel="gbp-panel-services">Services (10)</button>
+          <button type="button" class="gbp-nav-tab" data-panel="gbp-panel-reviews">Reviews (148)</button>
+          <button type="button" class="gbp-nav-tab" data-panel="gbp-panel-posts">Posts (2)</button>
+          <button type="button" class="gbp-nav-tab" data-panel="gbp-panel-qa">Q&A (5)</button>
+        </nav>
 
-            <div class="gbp-action-buttons">
-              <a href="tel:+18005550199" class="gbp-btn">📞 Call</a>
-              <a href="https://maps.google.com" target="_blank" class="gbp-btn">🗺️ Directions</a>
-              <a href="index.html" class="gbp-btn">🌐 Website</a>
-              <a href="reviews.html" class="gbp-btn">★ Write Review</a>
-            </div>
-
-            <ul class="gbp-details-list">
-              <li>
-                <span>📍</span>
-                <span><strong>Address:</strong> 742 Evergreen Terrace, Springfield, IL 62704</span>
-              </li>
-              <li>
-                <span>⏰</span>
-                <span><strong>Hours:</strong> Open 24/7 (Emergency Service Available)</span>
-              </li>
-              <li>
-                <span>🛠️</span>
-                <span><strong>Services:</strong> AC Repair, Furnace Installation, Drain Snaking, Panel Upgrade</span>
-              </li>
-              <li>
-                <span>🏷️</span>
-                <span><strong>Keywords:</strong> Springfield plumber near me, local HVAC contractor</span>
-              </li>
-            </ul>
+        <!-- Panel 1: Overview -->
+        <div class="gbp-tab-panel active" id="gbp-panel-overview">
+          <div class="gbp-biz-name">Apex Pro Home Services</div>
+          <div class="gbp-rating">
+            <span class="gbp-rating-stars">4.9 ★★★★★</span>
+            <span>(148 Google reviews)</span>
+            <span>• HVAC & Plumbing Contractor in Springfield, IL</span>
           </div>
 
-          <div>
-            <div class="gbp-posts-box">
-              <div style="display:flex; justify-content:space-between; margin-bottom:8px;">
-                <span style="font-size:0.75rem; font-weight:700; color:#1a73e8;">STARTER POST #1 (UPDATE)</span>
-                <span style="font-size:0.7rem; color:#64748b;">Posted 2 days ago</span>
+          <div class="gbp-action-buttons">
+            <a href="tel:+18005550199" class="gbp-btn">📞 Call</a>
+            <a href="https://maps.google.com" target="_blank" class="gbp-btn">🗺️ Directions</a>
+            <a href="index.html" class="gbp-btn">🌐 Website</a>
+            <a href="reviews.html" class="gbp-btn">★ Write Review</a>
+          </div>
+
+          <ul class="gbp-details-list">
+            <li><span>📍</span><span><strong>Address:</strong> 742 Evergreen Terrace, Springfield, IL 62704</span></li>
+            <li><span>⏰</span><span><strong>Hours:</strong> Open 24/7 (Emergency Service Available)</span></li>
+            <li><span>🛠️</span><span><strong>Primary Category:</strong> HVAC Contractor (Plumber, Electrician)</span></li>
+            <li><span>🏷️</span><span><strong>Description:</strong> Licensed heating, cooling, plumbing & electrical services with upfront flat-rate pricing.</span></li>
+          </ul>
+        </div>
+
+        <!-- Panel 2: Services -->
+        <div class="gbp-tab-panel" id="gbp-panel-services">
+          <h4 style="color:#0f172a; margin-bottom:14px; font-size:1.1rem;">Optimized Services Catalog on Google Maps</h4>
+          <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:12px;">
+            <div style="background:#f8fafc; padding:12px; border-radius:8px; border:1px solid var(--light-200);">
+              <strong>AC Diagnostic Check</strong> <span style="float:right; color:#059669; font-weight:700;">$89</span>
+              <p style="font-size:0.8rem; color:#64748b; margin-top:4px;">Full electrical, pressure & coil inspection.</p>
+            </div>
+            <div style="background:#f8fafc; padding:12px; border-radius:8px; border:1px solid var(--light-200);">
+              <strong>Emergency Drain Snaking</strong> <span style="float:right; color:#059669; font-weight:700;">$120</span>
+              <p style="font-size:0.8rem; color:#64748b; margin-top:4px;">Main drain & sewer cable line clearing.</p>
+            </div>
+            <div style="background:#f8fafc; padding:12px; border-radius:8px; border:1px solid var(--light-200);">
+              <strong>Furnace Safety Tune-Up</strong> <span style="float:right; color:#059669; font-weight:700;">$99</span>
+              <p style="font-size:0.8rem; color:#64748b; margin-top:4px;">Heat exchanger & carbon monoxide check.</p>
+            </div>
+            <div style="background:#f8fafc; padding:12px; border-radius:8px; border:1px solid var(--light-200);">
+              <strong>200A Electrical Panel Upgrade</strong> <span style="float:right; color:#059669; font-weight:700;">$2,200+</span>
+              <p style="font-size:0.8rem; color:#64748b; margin-top:4px;">Complete breaker replacement with permit.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Panel 3: Reviews -->
+        <div class="gbp-tab-panel" id="gbp-panel-reviews">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
+            <div>
+              <strong style="font-size:1.3rem; color:#0f172a;">4.9 Rating</strong>
+              <span style="color:#f59e0b; margin-left:6px;">★★★★★</span>
+              <span style="color:#64748b; font-size:0.85rem;">(148 Verified Google Reviews)</span>
+            </div>
+            <a href="reviews.html" class="gbp-btn" style="background:#1a73e8; color:#fff;">+ Leave Review</a>
+          </div>
+
+          <div style="display:flex; flex-direction:column; gap:12px;">
+            <div style="background:#f8fafc; padding:14px; border-radius:8px;">
+              <div style="display:flex; justify-content:space-between; font-size:0.85rem;">
+                <strong>David K. (Springfield)</strong>
+                <span style="color:#f59e0b;">★★★★★</span>
               </div>
-              <div class="gbp-post-title">Beat the Summer Heat: $49 AC Precision Tune-Up Special!</div>
-              <p class="gbp-post-desc">
-                Before outdoor temps surge, ensure your AC runs efficiently with our 24-point check. Includes filter inspect, coil cleaning & electrical test. Book online today!
+              <p style="font-size:0.85rem; color:#475569; margin-top:4px;">
+                "Our AC broke at 9 PM on a 95-degree Friday. Apex Pro arrived in 40 minutes, diagnosed a bad capacitor, replaced it, and had cold air blowing before 10 PM. Honest and reasonable pricing!"
               </p>
-              <a href="#quote-section" style="font-size:0.8rem; font-weight:700; color:#1a73e8; text-decoration:none; display:inline-block; margin-top:8px;">
-                Book Now Online →
+            </div>
+            <div style="background:#f8fafc; padding:14px; border-radius:8px;">
+              <div style="display:flex; justify-content:space-between; font-size:0.85rem;">
+                <strong>Melissa R. (Chatham)</strong>
+                <span style="color:#f59e0b;">★★★★★</span>
+              </div>
+              <p style="font-size:0.85rem; color:#475569; margin-top:4px;">
+                "Installed our new 200-Amp electrical panel and Tesla Level 2 EV charger. Clean work, labeled every breaker perfectly, and passed city inspection on first pass."
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Panel 4: Posts -->
+        <div class="gbp-tab-panel" id="gbp-panel-posts">
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+            <div class="gbp-posts-box">
+              <span style="font-size:0.7rem; font-weight:700; color:#1a73e8;">STARTER POST #1 (SPECIAL OFFER)</span>
+              <h4 style="font-size:1rem; color:#0f172a; margin:6px 0;">$49 Summer AC Precision Tune-Up</h4>
+              <p style="font-size:0.82rem; color:#475569;">
+                Includes coil wash, freon pressure test, and 24-point electrical contact verification.
+              </p>
+              <a href="#quote-section" style="font-size:0.8rem; font-weight:700; color:#1a73e8; text-decoration:none; display:inline-block; margin-top:6px;">
+                Book Special →
               </a>
             </div>
+            <div class="gbp-posts-box">
+              <span style="font-size:0.7rem; font-weight:700; color:#059669;">STARTER POST #2 (UPDATE)</span>
+              <h4 style="font-size:1rem; color:#0f172a; margin:6px 0;">24/7 Rapid Emergency Dispatch Active</h4>
+              <p style="font-size:0.82rem; color:#475569;">
+                Burst pipes or power failures? Standby vans ready across Sangamon County with zero weekend overtime fees.
+              </p>
+              <a href="tel:+18005550199" style="font-size:0.8rem; font-weight:700; color:#059669; text-decoration:none; display:inline-block; margin-top:6px;">
+                Call Now →
+              </a>
+            </div>
+          </div>
+        </div>
 
-            <div class="gbp-posts-box" style="margin-top:12px;">
-              <div style="display:flex; justify-content:space-between; margin-bottom:8px;">
-                <span style="font-size:0.75rem; font-weight:700; color:#059669;">PROFILE Q&A SEEDING</span>
-                <span style="font-size:0.7rem; color:#64748b;">Local SEO Boost</span>
-              </div>
-              <div class="gbp-post-title" style="font-size:0.85rem;">Q: Do you offer same-day emergency repairs on weekends?</div>
-              <p class="gbp-post-desc" style="font-size:0.8rem;">
-                <strong>Owner Answer:</strong> Yes! We have certified technicians on-call 24 hours a day, 7 days a week including holidays for emergency plumbing, heating, and power outages.
+        <!-- Panel 5: Q&A -->
+        <div class="gbp-tab-panel" id="gbp-panel-qa">
+          <div style="display:flex; flex-direction:column; gap:12px;">
+            <div style="background:#f8fafc; padding:14px; border-radius:8px;">
+              <strong style="color:#0f172a; font-size:0.88rem;">Q: Do you charge extra for weekend emergency calls?</strong>
+              <p style="font-size:0.82rem; color:#475569; margin-top:4px;">
+                <strong>Owner Answer:</strong> No, we maintain the exact same upfront flat rate 24/7 with zero weekend overtime penalty.
+              </p>
+            </div>
+            <div style="background:#f8fafc; padding:14px; border-radius:8px;">
+              <strong style="color:#0f172a; font-size:0.88rem;">Q: What areas do you service?</strong>
+              <p style="font-size:0.82rem; color:#475569; margin-top:4px;">
+                <strong>Owner Answer:</strong> Springfield, Chatham, Rochester, Sherman, Riverton, and Auburn within a 25-mile radius.
               </p>
             </div>
           </div>
@@ -540,9 +679,81 @@
   </section>
 
   <!-- =========================================================================
+       PACKAGE COMPARISON MATRIX (INTERACTIVE TIER SHOWCASE)
+       ========================================================================= -->
+  <section class="section section-alt reveal-on-scroll">
+    <div class="section-container">
+      <div class="section-header">
+        <div class="section-eyebrow">Clear Pricing & Deliverables</div>
+        <h2 class="section-title">Compare What's Included in Each Package</h2>
+        <p class="section-desc">
+          Designed specifically for local service businesses wanting to dominate their local search territory.
+        </p>
+      </div>
+
+      <div style="overflow-x:auto;">
+        <table style="width:100%; border-collapse:collapse; background:#fff; border-radius:16px; overflow:hidden; box-shadow:var(--shadow-md); border:1px solid var(--light-200); font-size:0.95rem;">
+          <thead>
+            <tr style="background:#0f172a; color:#fff; text-align:left;">
+              <th style="padding:18px 24px; font-weight:800;">Package Features</th>
+              <th style="padding:18px 20px; font-weight:800; color:#93c5fd;">Pkg 1: Starter (5 Days)</th>
+              <th style="padding:18px 20px; font-weight:800; color:#86efac;">Pkg 2: Growth (7 Days)</th>
+              <th style="padding:18px 20px; font-weight:800; color:#fde047; background:#1e293b;">Pkg 3: Pro (10 Days) ⭐</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom:1px solid var(--light-200);">
+              <td style="padding:16px 24px; font-weight:700;">Website Scope</td>
+              <td style="padding:16px 20px; color:#475569;">1–3 Responsive Pages</td>
+              <td style="padding:16px 20px; color:#475569;">4–5 Static Pages</td>
+              <td style="padding:16px 20px; font-weight:700; color:#0f172a; background:#f8fafc;">5 Pages + 2 High-Intent Landing Pages</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--light-200);">
+              <td style="padding:16px 24px; font-weight:700;">Google Business Profile (GBP)</td>
+              <td style="padding:16px 20px; color:#475569;">Setup + Hours + Categories</td>
+              <td style="padding:16px 20px; color:#475569;">Full Optimization (Services, Q&A, 2 Posts)</td>
+              <td style="padding:16px 20px; font-weight:700; color:#0f172a; background:#f8fafc;">Full GBP + Review QR Link Integration</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--light-200);">
+              <td style="padding:16px 24px; font-weight:700;">Lead Routing & Form</td>
+              <td style="padding:16px 20px; color:#475569;">Direct Email Forwarding</td>
+              <td style="padding:16px 20px; color:#475569;">Quote Form + GA4 Event Tracking</td>
+              <td style="padding:16px 20px; font-weight:700; color:#0f172a; background:#f8fafc;">Google Sheet Webhook + WhatsApp Alert</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--light-200);">
+              <td style="padding:16px 24px; font-weight:700;">Google Search Console & Sitemap</td>
+              <td style="padding:16px 20px; color:#10b981; font-weight:700;">✓ Included</td>
+              <td style="padding:16px 20px; color:#10b981; font-weight:700;">✓ Included</td>
+              <td style="padding:16px 20px; color:#10b981; font-weight:700; background:#f8fafc;">✓ Included</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--light-200);">
+              <td style="padding:16px 24px; font-weight:700;">Google Review QR Generator</td>
+              <td style="padding:16px 20px; color:#94a3b8;">—</td>
+              <td style="padding:16px 20px; color:#94a3b8;">—</td>
+              <td style="padding:16px 20px; color:#059669; font-weight:800; background:#f8fafc;">✓ Dynamic QR + Print Stand Flyer</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--light-200);">
+              <td style="padding:16px 24px; font-weight:700;">3 Local Directory Citations</td>
+              <td style="padding:16px 20px; color:#94a3b8;">—</td>
+              <td style="padding:16px 20px; color:#94a3b8;">—</td>
+              <td style="padding:16px 20px; color:#059669; font-weight:800; background:#f8fafc;">✓ Yelp, YP & Bing Places Included</td>
+            </tr>
+            <tr>
+              <td style="padding:16px 24px; font-weight:700;">Revisions & Turnaround</td>
+              <td style="padding:16px 20px; color:#475569;">1 Round / 5 Days</td>
+              <td style="padding:16px 20px; color:#475569;">2 Rounds / 7 Days</td>
+              <td style="padding:16px 20px; font-weight:700; color:#0f172a; background:#f8fafc;">3 Rounds / 10 Days</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
        GOOGLE REVIEWS & DYNAMIC QR CODE ENGINE (PACKAGE 3 DELIVERABLE)
        ========================================================================= -->
-  <section class="section section-alt" id="reviews-qr-engine" data-pkg="pkg-3">
+  <section class="section reveal-on-scroll" id="reviews-qr-engine" data-pkg="pkg-3">
     <div class="section-container">
       <div class="review-qr-section">
         <div class="review-qr-grid">
@@ -631,6 +842,61 @@
   </section>
 
   <!-- =========================================================================
+       INTERACTIVE FAQ ACCORDION (ANIMATED CHEVRON)
+       ========================================================================= -->
+  <section class="section section-alt reveal-on-scroll">
+    <div class="section-container">
+      <div class="section-header">
+        <div class="section-eyebrow">Everything You Need To Know</div>
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <p class="section-desc">Got questions about our services, emergency dispatch, or pricing? Click to view answers.</p>
+      </div>
+
+      <div class="faq-container">
+        <div class="faq-item">
+          <button type="button" class="faq-question">
+            <span>How fast can a technician arrive in an emergency?</span>
+            <span class="faq-chevron">▼</span>
+          </button>
+          <div class="faq-answer">
+            For urgent repairs (burst pipes, gas odor, loss of heating in sub-zero weather, or electrical hazards), our on-call dispatch team arrives in 60 minutes or less across Springfield and Sangamon County.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button type="button" class="faq-question">
+            <span>Do you charge extra for weekend or night calls?</span>
+            <span class="faq-chevron">▼</span>
+          </button>
+          <div class="faq-answer">
+            No! We believe in 100% upfront flat-rate pricing. You pay the exact same honest price whether we arrive on a Tuesday afternoon or a Sunday midnight.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button type="button" class="faq-question">
+            <span>How does the Google Sheets lead integration work in Package 3?</span>
+            <span class="faq-chevron">▼</span>
+          </button>
+          <div class="faq-answer">
+            Every time a customer submits the quote request form, our serverless webhook immediately logs the customer's name, phone, email, and requested service into a live Google Sheet and generates a 1-click WhatsApp notification to the owner's phone!
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button type="button" class="faq-question">
+            <span>Are all technicians licensed and insured?</span>
+            <span class="faq-chevron">▼</span>
+          </button>
+          <div class="faq-answer">
+            Yes, every Apex Pro technician holds active state licenses in HVAC, plumbing, or electrical trades, passes annual drug screenings and criminal background checks, and is backed by our $2,000,000 commercial liability policy.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
        FOOTER
        ========================================================================= -->
   <footer class="main-footer">
@@ -700,10 +966,22 @@
         © 2026 Apex Pro Home Services. All rights reserved. Built for Trial Demo.
       </div>
       <div>
-        Ready for deployment on Cloudflare Pages or GitHub Pages.
+        Live on GitHub Pages & Cloudflare Pages edge network.
       </div>
     </div>
   </footer>
+
+  <!-- =========================================================================
+       FLOATING MOBILE CONVERSION BAR (STICKY BOTTOM ON PHONES)
+       ========================================================================= -->
+  <aside class="floating-mobile-bar" aria-label="Quick Mobile Call Actions">
+    <a href="tel:+18005550199" class="floating-mobile-btn floating-btn-call">
+      <span>📞 Call Now</span>
+    </a>
+    <a href="https://wa.me/919876543210?text=Hello%20Apex%20Pro,%20I%20need%20a%20quote" target="_blank" class="floating-mobile-btn floating-btn-whatsapp">
+      <span>💬 WhatsApp</span>
+    </a>
+  </aside>
 
   <!-- =========================================================================
        LEAD CONFIRMATION & WHATSAPP MODAL (PACKAGE 3 AUTOMATION)
@@ -735,5 +1013,6 @@
   <script src="assets/js/reviews-qr.js"></script>
   <script src="assets/js/quote-form.js"></script>
   <script src="assets/js/package-switcher.js"></script>
+  <script src="assets/js/interactions.js"></script>
 </body>
 </html>

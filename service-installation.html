@@ -91,7 +91,7 @@
           <p>Get a detailed written proposal with rebate calculations.</p>
         </div>
 
-        <form id="installation-quote-form" onsubmit="event.preventDefault(); alert('Consultation booked! An energy advisor will contact you within 1 business day.');">
+        <form id="installation-quote-form" onsubmit="event.preventDefault(); showToast('Consultation booked! An energy advisor will contact you within 1 business day.');">
           <div class="form-group">
             <label class="form-label">Full Name *</label>
             <input type="text" class="form-control" placeholder="Sarah Jenkins" required>
@@ -127,15 +127,41 @@
     </div>
   </section>
 
+  <!-- Interactive Rebate & Financing Calculator Preview -->
+  <section class="section section-alt reveal-on-scroll">
+    <div class="section-container" style="max-width:880px;">
+      <div class="section-header">
+        <div class="section-eyebrow" style="color:#059669;">Financing & Rebate Estimator</div>
+        <h2 class="section-title">Affordable 0% Financing Options</h2>
+        <p class="section-desc">See how low your monthly investment can be with utility credits applied.</p>
+      </div>
+
+      <div style="background:#fff; border:2px solid #bbf7d0; border-radius:16px; padding:32px; box-shadow:var(--shadow-md);">
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px; align-items:center;">
+          <div>
+            <label style="font-weight:700; color:#0f172a; display:block; margin-bottom:8px;">Estimated System Investment:</label>
+            <div style="font-size:2rem; font-weight:800; color:#059669;">$5,500 System</div>
+            <div style="color:#64748b; font-size:0.85rem; margin-top:4px;">Less: $1,200 Local Utility Rebate</div>
+          </div>
+          <div style="background:#f0fdf4; border:1px solid #86efac; border-radius:12px; padding:20px; text-align:center;">
+            <div style="font-size:0.85rem; color:#166534; font-weight:700;">Starting As Low As</div>
+            <div style="font-size:2.4rem; font-weight:800; color:#15803d; line-height:1.1; margin:4px 0;">$79/mo</div>
+            <div style="font-size:0.75rem; color:#166534;">0% APR for 18 Months • Zero Down</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- 3 Simple Steps -->
-  <section class="section">
+  <section class="section reveal-on-scroll">
     <div class="section-container">
       <div class="section-header">
         <div class="section-eyebrow">Seamless Process</div>
         <h2 class="section-title">How Our Installation Works</h2>
       </div>
 
-      <div class="services-grid" style="grid-template-columns:repeat(3, 1fr);">
+      <div class="services-grid" style="grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));">
         <div class="service-card" style="text-align:center;">
           <div style="font-size:2.5rem; margin-bottom:12px;">📐</div>
           <h3 class="service-title">1. Precise Engineering Survey</h3>
@@ -169,6 +195,17 @@
     </div>
   </footer>
 
+  <!-- Floating Mobile Bar -->
+  <aside class="floating-mobile-bar" aria-label="Quick Mobile Call Actions">
+    <a href="tel:+18005550199" class="floating-mobile-btn floating-btn-call">
+      <span>📞 Call Now</span>
+    </a>
+    <a href="https://wa.me/919876543210" target="_blank" class="floating-mobile-btn floating-btn-whatsapp">
+      <span>💬 WhatsApp</span>
+    </a>
+  </aside>
+
   <script src="assets/js/analytics.js"></script>
+  <script src="assets/js/interactions.js"></script>
 </body>
 </html>
